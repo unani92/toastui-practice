@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <div id="viewer"/>
+    <button @click="whatContent">console.log(content)</button>
   </div>
 </template>
 <script>
@@ -22,17 +23,20 @@
     methods: {
       getContent() {
         const { content } = this.$router.currentRoute.params
-        this.content = content
+        return content
+      },
+      whatContent() {
+        console.log(this.content)
       }
     },
     mounted() {
-      this.getContent()
       const viewer = new Viewer({
         el: document.querySelector("#viewer"),
-        initialValue: this.content,
+        initialValue: this.getContent(),
         plugins: [[codeSyntaxHightlight, { hljs }]]
       })
       console.log(viewer)
+      this.content = this.getContent()
     }
   }
 </script>

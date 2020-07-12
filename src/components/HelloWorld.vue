@@ -36,7 +36,7 @@ export default {
       height: "500px",
       plugins: [[codeSyntaxHightlight, { hljs }]]
     })
-    console.log(editor)
+    editor
   }
 };
 </script>
