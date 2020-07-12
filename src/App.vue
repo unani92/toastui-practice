@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Create</router-link> |
       <router-link
-       :to="{ name: 'About', params: {} }">
-       About
+       :to="{ name: 'ToastViewer', params: {} }">
+       Viewer
       </router-link>
     </div>
     <router-view/>
