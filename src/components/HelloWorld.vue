@@ -8,15 +8,11 @@
 import 'codemirror/lib/codemirror.css'; // codemirror 스타일
 import '@toast-ui/editor/dist/toastui-editor.css'; // Editor's Style
 import Editor from '@toast-ui/editor';
-
 import 'highlight.js/styles/github.css'; // code block highlight 스타일
 import codeSyntaxHightlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 import hljs from 'highlight.js';
 
 export default {
-  components: {
-    // editor: editor
-  },
   data() {
     return {
       editorText: 'This is initialValue.',
@@ -27,8 +23,9 @@ export default {
   },
   methods: {
     onChange() {
-      const content = document.querySelector("#editor")
-      console.log(content.innerText)
+      const codeMirror = document.querySelector(".CodeMirror-code")
+      const content = codeMirror.innerText
+      this.$emit("onSubmit",content)
     }
   },
   mounted() {
